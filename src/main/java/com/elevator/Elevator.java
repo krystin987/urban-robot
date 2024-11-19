@@ -2,17 +2,15 @@ package com.elevator;
 
 public class Elevator {
 
-    private boolean doorOpen;
-    private int currentFloor;
+    private boolean isDoorOpen;
 
     public Elevator() {
-        this.doorOpen = false;
-        this.currentFloor = 1; // Starting at the only floor (floor 1)
+        this.isDoorOpen = false;
     }
 
     public void openDoor() {
-        if (!doorOpen) {
-            doorOpen = true;
+        if (!isDoorOpen) {
+            isDoorOpen = true;
             System.out.println("Door is now open.");
         } else {
             System.out.println("Door is already open.");
@@ -20,8 +18,8 @@ public class Elevator {
     }
 
     public void closeDoor() {
-        if (doorOpen) {
-            doorOpen = false;
+        if (isDoorOpen) {
+            isDoorOpen = false;
             System.out.println("Door is now closed.");
         } else {
             System.out.println("Door is already closed.");
@@ -29,18 +27,13 @@ public class Elevator {
     }
 
     public boolean isDoorOpen() {
-        return doorOpen;
+        return isDoorOpen;
     }
 
-    public int getCurrentFloor() {
-        return currentFloor;
-    }
-
-    public void callElevator() {
-        System.out.println("Elevator is called to floor " + currentFloor + ".");
-        if (!doorOpen) {
-            openDoor();
-        }
+    public static void main(String[] args) {
+        Elevator elevator = new Elevator();
+        elevator.openDoor();
+        elevator.closeDoor();
     }
 
 }
