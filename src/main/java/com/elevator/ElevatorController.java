@@ -3,17 +3,33 @@ package com.elevator;
 import java.util.LinkedList;
 import java.util.Queue;
 
-public class ElevatorController {
-    private final Elevator elevator;
-    private final Queue<FloorRequest> requestQueue;
-    private String direction; // "UP", "DOWN", or "IDLE"
 
+/**
+ * Manages elevator operations such as handling floor requests,
+ * controlling movement, and simulating behavior.
+ */
+public class ElevatorController {
+    private final Elevator elevator; // The elevator being controlled
+    private final Queue<FloorRequest> requestQueue; // Queue of floor requests
+    private String direction; // Current direction: "UP", "DOWN", or "IDLE"
+
+    /**
+     * Initializes the controller for a given elevator.
+     *
+     * @param elevator the elevator to control
+     */
     public ElevatorController(Elevator elevator) {
         this.elevator = elevator;
         this.requestQueue = new LinkedList<>();
         this.direction = "IDLE";
     }
 
+    /**
+     * Adds a floor request to the queue and processes it.
+     *
+     * @param floor     the requested floor
+     * @param direction the direction of the request ("UP" or "DOWN")
+     */
     public void requestFloor(int floor, String direction) {
         if (!validateFloor(floor)) {
             return;
@@ -34,6 +50,11 @@ public class ElevatorController {
         }
     }
 
+    /**
+     * Moves the elevator to a specified floor.
+     *
+     * @param floor the target floor
+     */
     public void moveToFloor(int floor) {
         if (!validateFloor(floor)) {
             return;

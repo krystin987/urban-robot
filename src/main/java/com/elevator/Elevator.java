@@ -2,12 +2,24 @@ package com.elevator;
 
 import java.util.Scanner;
 
-public class Elevator {
-    private boolean isDoorOpen;
-    private int currentFloor;
-    private final int minFloor;
-    private final int maxFloor;
 
+/**
+ * Represents a simple elevator system that can move between floors, open/close doors,
+ * and process user commands.
+ */
+public class Elevator {
+    private boolean isDoorOpen; // Indicates whether the elevator door is open
+    private int currentFloor;  // Current floor of the elevator
+    private final int minFloor; // Minimum floor the elevator can reach
+    private final int maxFloor; // Maximum floor the elevator can reach
+
+
+    /**
+     * Initializes the elevator with a minimum and maximum floor range.
+     *
+     * @param minFloor the lowest floor the elevator can serve
+     * @param maxFloor the highest floor the elevator can serve
+     */
     public Elevator(int minFloor, int maxFloor) {
         this.isDoorOpen = false;
         this.currentFloor = minFloor; // Start at the minimum floor
@@ -15,6 +27,11 @@ public class Elevator {
         this.maxFloor = maxFloor;
     }
 
+    /**
+     * Opens or closes the elevator door.
+     *
+     * @param open true to open the door, false to close it
+     */
     public void setDoorState(boolean open) {
         if (isDoorOpen == open) {
             System.out.println("Door is already " + (open ? "open." : "closed."));
@@ -24,6 +41,7 @@ public class Elevator {
         System.out.println("Door is now " + (open ? "open." : "closed."));
     }
 
+
     public int getCurrentFloor() {
         return currentFloor;
     }
@@ -32,6 +50,11 @@ public class Elevator {
         return isDoorOpen;
     }
 
+    /**
+     * Updates the current floor of the elevator.
+     *
+     * @param floor the target floor
+     */
     public void moveToFloor(int floor) {
         currentFloor = floor;
     }
