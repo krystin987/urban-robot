@@ -49,7 +49,8 @@ public class ElevatorController {
 
         // Determine the direction
         direction = floor > elevator.getCurrentFloor() ? "UP" : "DOWN";
-        System.out.println("Elevator is moving " + direction + " from floor " + elevator.getCurrentFloor() + " to floor " + floor + "...");
+        String arrow = direction.equals("UP") ? "↑" : "↓";
+        System.out.println("Elevator is moving " + direction + " " + arrow +  " from floor " + elevator.getCurrentFloor() + " to floor " + floor + "...");
 
         // Simulate the movement with an animated delay
         try {
@@ -57,7 +58,7 @@ public class ElevatorController {
             for (int i = 0; i < floorsToMove; i++) {
                 Thread.sleep(1000); // Simulate 1 second delay per floor
 
-                // Animation: Print a dot every half second to indicate waiting
+                // Print a dot every half second to indicate waiting
                 System.out.print(".");
                 Thread.sleep(500);
             }
