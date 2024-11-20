@@ -15,22 +15,13 @@ public class Elevator {
         this.maxFloor = maxFloor;
     }
 
-    public void openDoor() {
-        if (!isDoorOpen) {
-            isDoorOpen = true;
-            System.out.println("Door is now open.");
-        } else {
-            System.out.println("Door is already open.");
+    public void setDoorState(boolean open) {
+        if (isDoorOpen == open) {
+            System.out.println("Door is already " + (open ? "open." : "closed."));
+            return;
         }
-    }
-
-    public void closeDoor() {
-        if (isDoorOpen) {
-            isDoorOpen = false;
-            System.out.println("Door is now closed.");
-        } else {
-            System.out.println("Door is already closed.");
-        }
+        isDoorOpen = open;
+        System.out.println("Door is now " + (open ? "open." : "closed."));
     }
 
     public int getCurrentFloor() {
@@ -73,9 +64,9 @@ public class Elevator {
                 System.out.println("Exiting elevator system. Goodbye!");
                 break;
             } else if (command.equalsIgnoreCase("open")) {
-                elevator.openDoor();
+                elevator.setDoorState(true);
             } else if (command.equalsIgnoreCase("close")) {
-                elevator.closeDoor();
+                elevator.setDoorState(false);
             } else if (command.equalsIgnoreCase("move")) {
                 if (parts.length < 2) {
                     System.out.println("Please specify a floor to move to.");

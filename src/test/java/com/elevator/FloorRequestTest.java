@@ -10,7 +10,7 @@ public class FloorRequestTest {
     public void testFloorRequestHandling() {
         Elevator elevator = new Elevator(1, 5);
         ElevatorController controller = new ElevatorController(elevator);
-        elevator.closeDoor();
+        elevator.setDoorState(false);
         controller.requestFloor(4, "UP");
         assertEquals(4, elevator.getCurrentFloor(), "Elevator should handle floor requests and move to floor 4.");
     }
@@ -19,7 +19,7 @@ public class FloorRequestTest {
     public void testInvalidFloorRequest() {
         Elevator elevator = new Elevator(1, 5);
         ElevatorController controller = new ElevatorController(elevator);
-        elevator.closeDoor();
+        elevator.setDoorState(false);
         controller.requestFloor(6, "UP"); // Invalid floor
         assertEquals(1, elevator.getCurrentFloor(), "Elevator should remain on the current floor when an invalid floor is requested.");
     }
@@ -37,7 +37,7 @@ public class FloorRequestTest {
     public void testMultipleRequests() throws InterruptedException {
         Elevator elevator = new Elevator(1, 5);
         ElevatorController controller = new ElevatorController(elevator);
-        elevator.closeDoor();
+        elevator.setDoorState(false);
 
         controller.requestFloor(3, "UP");
         controller.requestFloor(5, "UP");
@@ -50,7 +50,7 @@ public class FloorRequestTest {
     public void testMultipleRequestsReverseOrder() throws InterruptedException {
         Elevator elevator = new Elevator(1, 5);
         ElevatorController controller = new ElevatorController(elevator);
-        elevator.closeDoor();
+        elevator.setDoorState(false);
 
         controller.requestFloor(5, "UP");
         controller.requestFloor(2, "DOWN");
@@ -63,7 +63,7 @@ public class FloorRequestTest {
     public void testRepeatedFloorRequests() throws InterruptedException {
         Elevator elevator = new Elevator(1, 5);
         ElevatorController controller = new ElevatorController(elevator);
-        elevator.closeDoor();
+        elevator.setDoorState(false);
 
         controller.requestFloor(4, "UP");
         controller.requestFloor(4, "UP");
@@ -75,7 +75,7 @@ public class FloorRequestTest {
     public void testConcurrentRequests() throws InterruptedException {
         Elevator elevator = new Elevator(1, 5);
         ElevatorController controller = new ElevatorController(elevator);
-        elevator.closeDoor();
+        elevator.setDoorState(false);
 
         Thread thread1 = new Thread(() -> controller.requestFloor(3, "UP"));
         Thread thread2 = new Thread(() -> controller.requestFloor(5, "UP"));
@@ -98,7 +98,7 @@ public class FloorRequestTest {
     public void testMixedRequests() throws InterruptedException {
         Elevator elevator = new Elevator(1, 5);
         ElevatorController controller = new ElevatorController(elevator);
-        elevator.closeDoor();
+        elevator.setDoorState(false);
 
         controller.requestFloor(4, "UP");
         controller.requestFloor(6, "UP"); // Invalid floor

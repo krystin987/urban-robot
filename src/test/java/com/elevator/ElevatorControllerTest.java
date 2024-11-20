@@ -9,7 +9,7 @@ public class ElevatorControllerTest {
     public void testMoveToValidFloor() {
         Elevator elevator = new Elevator(1, 5);
         ElevatorController controller = new ElevatorController(elevator);
-        elevator.closeDoor();
+        elevator.setDoorState(false);
         controller.moveToFloor(3);
         assertEquals(3, elevator.getCurrentFloor(), "Elevator should be on floor 3 after moving.");
     }
@@ -18,7 +18,7 @@ public class ElevatorControllerTest {
     public void testCannotMoveWithDoorOpen() {
         Elevator elevator = new Elevator(1, 5);
         ElevatorController controller = new ElevatorController(elevator);
-        elevator.openDoor();
+        elevator.setDoorState(true);
         controller.moveToFloor(3);
         assertEquals(1, elevator.getCurrentFloor(), "Elevator should not move when the door is open.");
     }
@@ -27,7 +27,7 @@ public class ElevatorControllerTest {
     public void testInvalidFloor() {
         Elevator elevator = new Elevator(1, 5);
         ElevatorController controller = new ElevatorController(elevator);
-        elevator.closeDoor();
+        elevator.setDoorState(false);
         controller.moveToFloor(6); // Invalid floor
         assertEquals(1, elevator.getCurrentFloor(), "Elevator should remain on the current floor when an invalid floor is requested.");
     }
@@ -36,7 +36,7 @@ public class ElevatorControllerTest {
     public void testMoveToSameFloor() {
         Elevator elevator = new Elevator(1, 5);
         ElevatorController controller = new ElevatorController(elevator);
-        elevator.closeDoor();
+        elevator.setDoorState(false);
         controller.moveToFloor(1);
         assertEquals(1, elevator.getCurrentFloor(), "Elevator should remain on the same floor if already on the requested floor.");
     }
@@ -45,7 +45,7 @@ public class ElevatorControllerTest {
     public void testElevatorDirectionIndicatorUp() {
         Elevator elevator = new Elevator(1, 5);
         ElevatorController controller = new ElevatorController(elevator);
-        elevator.closeDoor();
+        elevator.setDoorState(false);
         controller.moveToFloor(5);
         assertEquals("IDLE", controller.getDirection(), "Elevator direction should be IDLE after arriving at the destination.");
     }
@@ -54,7 +54,7 @@ public class ElevatorControllerTest {
     public void testElevatorDirectionIndicatorDown() {
         Elevator elevator = new Elevator(1, 5);
         ElevatorController controller = new ElevatorController(elevator);
-        elevator.closeDoor();
+        elevator.setDoorState(false);
         controller.moveToFloor(5); // Move up first
         controller.moveToFloor(2); // Move down
     }
