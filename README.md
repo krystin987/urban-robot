@@ -3,6 +3,7 @@
 This is a simple Java-based simulation of an elevator system, designed to mimic the basic behavior of an elevator moving between floors. The program models the core functionalities of an elevator, including moving between floors, handling floor requests, opening and closing doors, and displaying direction indicators using arrow symbols.
 
 ## Project Structure
+```
 src
 ├── main
 │   └── java
@@ -18,7 +19,7 @@ src
                 ├── ElevatorTest.java
                 ├── ElevatorControllerTest.java
                 └── FloorRequestTest.java
-
+```
 
 ## Description of the Program
 
