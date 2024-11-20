@@ -52,7 +52,7 @@ src
 
 1. **Clone the Repository**:
    ```bash
-   git clone https://github.com/yourusername/elevator-simulation.git
+   git clone https://github.com/krystin987/urban-robot.git
    ```
 2. **Compile and Run:** Use an IDE like IntelliJ or Eclipse, or compile using the command line:
     ```bash
