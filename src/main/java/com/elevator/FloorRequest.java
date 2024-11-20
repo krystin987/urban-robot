@@ -26,4 +26,5 @@ public class FloorRequest {
     public void markAsServed() {
         this.isServed = true;
     }
+
 }
